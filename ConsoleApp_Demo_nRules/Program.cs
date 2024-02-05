@@ -134,6 +134,7 @@ internal class Program
             Order joleneOrder10 = new Order(10, jolene);
             joleneOrder10.AddItem(salmonPlate); //Pass - low carb option
 
+            //Tommy - Child and Student
             Order tommyOrder11 = new Order(11, tommy);
             tommyOrder11.AddItem(kidsMeal);
             tommyOrder11.AddItem(jrBurger);  //Fail - too expensive
@@ -141,11 +142,19 @@ internal class Program
             Order tommyOrder12 = new Order(12, tommy);
             tommyOrder12.AddItem(kidsMeal);  //Pass - Cheaper opton.  Note: Tommy is age 12 can order off Kids Menu
 
+            //Vera - Health Conscious
+            Order veraOrder13 = new Order(13, vera);
+            veraOrder13.AddItem(fishNchips);  //Fail - too many calories and carbs to be healthy.  Plus, too expensive for budget
+
+            Order veraOrder14 = new Order(14, vera);
+            veraOrder14.AddItem(cheeseburger);
+            veraOrder14.AddItem(friesSm);  //Pass - is in healthy ranges and under budget
+
             //Add Facts to Rules Engine.  Include Customers and Orders
             sMethodLoc = 8;
             Console.WriteLine("Insert facts into rules engine's memory");
             session.Insert(mel);
-            session.Insert(vera);
+            session.Insert(vera); 
             session.Insert(flo);
             session.Insert(alice);
             session.Insert(tommy);
@@ -162,6 +171,8 @@ internal class Program
             session.Insert(joleneOrder10);  
             session.Insert(tommyOrder11);
             session.Insert(tommyOrder12);
+            session.Insert(veraOrder13);
+            session.Insert(veraOrder14);
 
             //Launch Rule Engine
             sMethodLoc = 9;
@@ -176,24 +187,33 @@ internal class Program
             Console.WriteLine("Alice");
             aliceOrder1.OutputRuleResults();
             aliceOrder2.OutputRuleResults();
+
             Console.WriteLine("");
             Console.WriteLine("Mel");
             melOrder3.OutputRuleResults();
             melOrder4.OutputRuleResults();
             melOrder5.OutputRuleResults();
+
             Console.WriteLine("");
             Console.WriteLine("Flo");
             floOrder6.OutputRuleResults();
             floOrder7.OutputRuleResults();
             floOrder8.OutputRuleResults();
+
             Console.WriteLine("");
             Console.WriteLine("Jolene");
             joleneOrder9.OutputRuleResults();
             joleneOrder10.OutputRuleResults();
+
             Console.WriteLine("");
             Console.WriteLine("Tommy");
             tommyOrder11.OutputRuleResults();
             tommyOrder12.OutputRuleResults();
+
+            Console.WriteLine("");
+            Console.WriteLine("Vera");
+            veraOrder13.OutputRuleResults();
+            veraOrder14.OutputRuleResults();
 
 
 
